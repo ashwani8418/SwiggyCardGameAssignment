@@ -41,15 +41,27 @@ public class MultiPlayerGame {
     public void playGame(){
         while (true){
             currentPlayerHand = players[getNextPlayer()];
-            if(currentPlayerHand.getHandSize() == 0){
-                System.out.println("");
+//            Checking for deck Pile is empty on not;
+            if(deck.isGameDraw()){
+                System.out.println("Draw pile is empty. Game ends in a draw.");
+                break;
             }
+            if(currentPlayerHand.getHandSize() == 0){
+                System.out.println("Congratulation !!!" + currentPlayerHand.getName() + " You are Winner of the Game");
+                System.out.println("Thank you for playing, I hope you enjoyed the Game!!!");
+                break;
+            }
+
             System.out.println("Player " + currentPlayerHand.getName() + "'s turn.");
+//            Displaying Card left with the currentHandPlayer
             currentPlayerHand.printCardInPlayerHand();
             // Display top card on discard pile
             System.out.println("Top card on discard pile: " + discardPile[0]);
             int index = getCardIndex();
             Card selectedCard = currentPlayerHand.playCardFromPlayerHand(index);
+
+
+//            Checking for Action Card.........
             if(selectedCard.getRank() == Rank.ACE){
                 System.out.println("Skipping the next player in turn");
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
@@ -86,9 +98,6 @@ public class MultiPlayerGame {
                     continue;
                 }
             }
-
-
-
         }
     }
 

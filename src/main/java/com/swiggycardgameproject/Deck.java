@@ -41,4 +41,8 @@ public class Deck {
         topIndex++;
         return card;
     }
+
+    public boolean isGameDraw(){
+        return topIndex == 51;
+    }
 }
