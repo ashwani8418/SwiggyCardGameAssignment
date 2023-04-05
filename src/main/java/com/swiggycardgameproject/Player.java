@@ -11,6 +11,7 @@ public class Player {
     public Player(String name) {
         this.name = name;
         this.hand = new Card[maxHandLength];
+        this.handSize = 0;
     }
 
     public String getName() {
@@ -22,7 +23,7 @@ public class Player {
     }
 
     public int getHandSize() {
-        return handSize;
+        return this.handSize;
     }
 
     public void addCardToPlayer(Card card){
@@ -30,10 +31,8 @@ public class Player {
         for (int i = 0; i < hand.length; i++) {
             if(hand[i] == null){
                 hand[i] = card;
+                handSize++;
                 return;
-            }
-            else {
-                System.out.println("Player Hand is Full..");
             }
         }
     }
@@ -43,12 +42,24 @@ public class Player {
             return null;
         }
         Card card = hand[index];
-        for (int i = index; i < hand.length; i++) {
-            hand[i] = hand[i + 1];
-        }
-        hand[hand.length - 1] = null;
-        handSize = hand.length - 1;
+        System.out.println(card.toString());
         return card;
+    }
+
+    public void removeCardFromHand(Card card) {
+        for (int i = 0; i < this.handSize; i++) {
+            if (this.hand[i].equals(card)) {
+                // Shift cards left to fill the gap
+                for (int j = i; j < this.handSize - 1; j++) {
+                    this.hand[j] = this.hand[j + 1];
+                }
+                // Set last card in hand to null
+                this.hand[this.handSize - 1] = null;
+                this.handSize--;
+                break;
+            }
+        }
+        System.out.println("Card Removed.....");
     }
 
     public void printCardInPlayerHand(){
@@ -59,7 +70,7 @@ public class Player {
                 System.out.println("Press "+ i + " : " + hand[i].getRank() + " : " + hand[i].getSuit());
             }
         }
-        System.out.println("HandSize "+getHandSize());
+
 
     }
 }
