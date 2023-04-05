@@ -13,10 +13,11 @@ public class Main {
             System.out.println("Please choose player between 2 to 4");
             numberOfPlayer = sc.nextInt();
         }
-        String[] player = new String[numberOfPlayer];
+        Player[] player = new Player[numberOfPlayer];
         for(int i = 0; i < numberOfPlayer; i++){
             System.out.println("Enter name of " + (i + 1) + " player : ");
-            player[i] = sc.next();
+            String playerName = sc.next();
+            player[i] = new Player(playerName);
         }
 
         System.out.println("..........Starting Your Game!!!..............");
