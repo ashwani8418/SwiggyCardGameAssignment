@@ -1,4 +1,4 @@
-To run this Game, in Main class
+To run this Game, Go to the Main class and run the main class to start the game.
 The line MultiPlayerGame game = new MultiPlayerGame(player) in the Main class is creating a new instance of the MultiPlayerGame class and assigning it to the 
 variable game. The constructor of the MultiPlayerGame class takes a Player object as a parameter.
 
