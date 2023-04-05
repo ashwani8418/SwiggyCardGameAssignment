@@ -6,7 +6,7 @@ variable game. The constructor of the MultiPlayerGame class takes a Player objec
 Once the game object has been created, it can be used to start the game by calling a method on it.
 For example, if the MultiPlayerGame class has a method called startGame(), you could call it like this: game.playGame();
 
->>>>>>>>MultiPlayerGame Class 
+******************MultiPlayerGame Class 
 The dealCard() method returns the top card from the deck, and increments the top index to keep track of which card was dealt last. 
 
 *********************In Deck Class
