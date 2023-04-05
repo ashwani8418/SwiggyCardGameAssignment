@@ -83,7 +83,7 @@ public class MultiPlayerGame {
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
             }
             else{
-                System.out.println("Card not matches, Draw a card from Deck pile....");
+                System.out.println("Card not matches, Drawing a card from Deck pile....");
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
                 int len = currentPlayerHand.getHandSize() - 1;
                 if(len < 5){
