@@ -2,7 +2,6 @@ package com.swiggycardgameproject;
 
 import com.swiggycardgameproject.Card.Card;
 import com.swiggycardgameproject.Card.Rank;
-import com.swiggycardgameproject.Card.Suit;
 
 import java.util.Scanner;
 
@@ -13,7 +12,6 @@ public class MultiPlayerGame {
     private int topDiscard;
     private int currentPlayer;
     private boolean reversed;
-    private int drawCount;
 
     public MultiPlayerGame(Player[] players){
         deck = new Deck();
@@ -23,7 +21,6 @@ public class MultiPlayerGame {
         topDiscard = 0;
         currentPlayer = -1;
         reversed = false;
-        drawCount = 0;
         dealCards();
         discardPile[topDiscard++] = deck.drawCardFromDeck();
     }
@@ -34,7 +31,6 @@ public class MultiPlayerGame {
                 player.addCardToPlayer(deck.drawCardFromDeck());
             }
         }
-        return;
     }
     Scanner sc = new Scanner(System.in);
     Player currentPlayerHand;
@@ -62,28 +58,28 @@ public class MultiPlayerGame {
 
 
 //            Checking for Action Card.........
-            if(selectedCard.getRank() == Rank.ACE){
+            if(selectedCard.rank() == Rank.ACE){
                 System.out.println("Skipping the next player in turn");
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
                 continue;
             }
-            if(selectedCard.getRank() == Rank.KING){
+            if(selectedCard.rank() == Rank.KING){
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
                 reversed = !reversed;
                 System.out.println("Reversing the playing turn.....");
             }
-            if(selectedCard.getRank().equals(Rank.QUEEN)){
+            if(selectedCard.rank().equals(Rank.QUEEN)){
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
                 System.out.println("Adding 2 to next player's turn.");
                 currentPlayer = (currentPlayer + 2) % (players.length - 1);
             }
-            if(selectedCard.getRank().equals(Rank.JACK)){
+            if(selectedCard.rank().equals(Rank.JACK)){
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
                 System.out.println("Adding 2 to next player's turn.");
                 currentPlayer = (currentPlayer + 4) % (players.length - 1);
 
             }
-            if(selectedCard.getSuit().equals(discardPile[0].getSuit()) || selectedCard.getRank().equals(discardPile[0].getRank())){
+            if(selectedCard.suit().equals(discardPile[0].suit()) || selectedCard.rank().equals(discardPile[0].rank())){
                 currentPlayerHand.removeCardFromHand(currentPlayerHand.getHand()[index]);
             }
             else{
@@ -95,7 +91,6 @@ public class MultiPlayerGame {
                 }
                 else{
                     System.out.println(("Player Hand is full...."));
-                    continue;
                 }
             }
         }

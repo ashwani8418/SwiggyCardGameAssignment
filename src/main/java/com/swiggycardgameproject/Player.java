@@ -59,15 +59,14 @@ public class Player {
                 break;
             }
         }
-        System.out.println("Card Removed.....");
+//        System.out.println("Card Removed.....");
     }
 
     public void printCardInPlayerHand(){
-        System.out.println("Player: "+ name + ", Cards in your hand.");
         System.out.println("Choose to draw a card to from your hand.");
         for (int i = 0; i < hand.length; i++) {
             if(hand[i] != null){
-                System.out.println("Press "+ i + " : " + hand[i].getRank() + " : " + hand[i].getSuit());
+                System.out.println("Press "+ i + " : " + hand[i].rank() + " : " + hand[i].suit());
             }
         }
 
