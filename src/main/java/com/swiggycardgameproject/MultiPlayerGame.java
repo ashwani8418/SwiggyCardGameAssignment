@@ -112,7 +112,7 @@ public class MultiPlayerGame {
 
     public int getNextPlayer(){
         if(!reversed){
-            if(currentPlayer < players.length){
+            if(currentPlayer < players.length - 1){
                 currentPlayer++;
             }
             else{
@@ -121,7 +121,7 @@ public class MultiPlayerGame {
         }
         else {
             if(currentPlayer <= 0){
-                currentPlayer = players.length - 1;
+                currentPlayer = players.length - 2;
             }
             else{
                 currentPlayer--;
