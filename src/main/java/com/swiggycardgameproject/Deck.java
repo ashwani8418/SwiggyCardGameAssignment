@@ -15,9 +15,10 @@ public class Deck {
         cards = new Card[52];
         topIndex = 0;
         int index = 0;
-        for (Suit suit : Suit.values()){
-            for (Rank rank : Rank.values()){
-                cards[index++] = new Card(rank, suit);
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
+                cards[index] = new Card(rank, suit);
+                index++;
             }
         }
     }
@@ -36,7 +37,8 @@ public class Deck {
         if(topIndex >= cards.length){
             return null;
         }
-        Card card = cards[topIndex++];
+        Card card = cards[topIndex];
+        topIndex++;
         return card;
     }
 }

@@ -2,7 +2,6 @@ package com.swiggycardgameproject.Card;
 
 public enum Rank {
     ACE,
-    ONE,
     TWO,
     THREE,
     FOUR,

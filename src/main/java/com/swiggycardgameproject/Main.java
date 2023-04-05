@@ -21,5 +21,7 @@ public class Main {
         }
 
         System.out.println("..........Starting Your Game!!!..............");
+
+        MultiPlayerGame game = new MultiPlayerGame(player);
     }
 }
