@@ -47,7 +47,7 @@ public class MultiPlayerGame {
                 break;
             }
             if(currentPlayerHand.getHandSize() == 0){
-                System.out.println("Congratulation !!!" + currentPlayerHand.getName() + " You are Winner of the Game");
+                System.out.println("Congratulation !!!, " + currentPlayerHand.getName() + " You are Winner of the Game");
                 System.out.println("Thank you for playing, I hope you enjoyed the Game!!!");
                 break;
             }
